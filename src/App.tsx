@@ -1,9 +1,9 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './App.css';
 import CharacterGallery from "./CharacterGallery";
 
 function App() {
-  const characters = [
+  const [characters, setCharacters] = useState([
     {
       "id": 1,
       "name": "Rick Sanchez",
@@ -1128,18 +1128,23 @@ function App() {
       "url": "https://rickandmortyapi.com/api/character/40",
       "created": "2017-11-05T10:02:26.701Z"
     }
-  ];
+  ]);
 
   const cards = characters.map(character => {
     return ({
       title: character.name,
       imageUrl: character.image,
-      description: character.status
+      description: character.status,
+      onLike: (title: string) => {
+        alert(title);
+      }
     })
   });
 
   return (
-    <CharacterGallery characters={cards}/>
+    <CharacterGallery characters={cards} onDelete={i => {
+      setCharacters(characters.filter((character, j) => j !== i));
+    }}/>
   );
 }
 

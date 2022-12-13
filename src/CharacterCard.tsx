@@ -3,8 +3,16 @@ import Card from "./Card";
 export default function CharacterCard ({
   title,
   imageUrl,
-  description
-} : Card) {
+  description,
+  onLike,
+  onDelete
+} : {
+  title: string,
+  imageUrl: string,
+  description: string,
+  onLike: (title: string) => void,
+  onDelete: () => void
+}) {
   return (
     <div className={"character-card"}>
       <div>
@@ -17,6 +25,11 @@ export default function CharacterCard ({
 
       <div>
         {description}
+      </div>
+
+      <div>
+        <button onClick={() => onLike(title)}>Like</button>
+        <button onClick={() => onDelete()}>Delete</button>
       </div>
     </div>
   )
