@@ -3,7 +3,7 @@ type Card = {
   title: string,
   imageUrl: string,
   description: string,
-  onLike: (title: string) => void
+  onLike: (title: number) => void
 };
 
 export default Card;

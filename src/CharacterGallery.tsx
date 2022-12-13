@@ -14,7 +14,7 @@ export default function CharacterGallery ({
         <CharacterCard
           key={character.id}
           {...character}
-          onDelete={() => onDelete(character.id)}
+          onDelete={onDelete}
         />
       ))}
     </div>

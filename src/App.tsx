@@ -1136,16 +1136,22 @@ function App() {
       title: character.name,
       imageUrl: character.image,
       description: character.status,
-      onLike: (title: string) => {
-        alert(title);
+      onLike: (id: number) => {
+        const character = characters.find(character => character.id === id);
+        alert(character?.name);
       }
     })
   });
 
   return (
-    <CharacterGallery characters={cards} onDelete={id => {
-      setCharacters(characters.filter((character) => character.id !== id));
-    }}/>
+    <CharacterGallery
+      characters={cards}
+      onDelete={id => {
+        setCharacters(
+          characters.filter((character) => character.id !== id)
+        );
+      }}
+    />
   );
 }
 
