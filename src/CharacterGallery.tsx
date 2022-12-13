@@ -6,15 +6,15 @@ export default function CharacterGallery ({
   onDelete
 } : {
   characters: Card[];
-  onDelete: (i: number) => void
+  onDelete: (id: number) => void
 }) {
   return (
     <div className={"character-gallery"}>
-      {characters.map((character, i) => (
+      {characters.map((character) => (
         <CharacterCard
-          key={i}
+          key={character.id}
           {...character}
-          onDelete={() => onDelete(i)}
+          onDelete={() => onDelete(character.id)}
         />
       ))}
     </div>

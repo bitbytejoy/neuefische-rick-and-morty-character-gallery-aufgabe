@@ -1132,6 +1132,7 @@ function App() {
 
   const cards = characters.map(character => {
     return ({
+      id: character.id,
       title: character.name,
       imageUrl: character.image,
       description: character.status,
@@ -1142,8 +1143,8 @@ function App() {
   });
 
   return (
-    <CharacterGallery characters={cards} onDelete={i => {
-      setCharacters(characters.filter((character, j) => j !== i));
+    <CharacterGallery characters={cards} onDelete={id => {
+      setCharacters(characters.filter((character) => character.id !== id));
     }}/>
   );
 }
